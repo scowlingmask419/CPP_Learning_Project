@@ -94,11 +94,11 @@ bool Aircraft::move()
     if (waypoints.empty())
     {
         // TASK 0 - C.5)
-        if (!has_been_served) 
+        if (!has_been_served)
         {
             waypoints = control.get_instructions(*this);
         }
-        else 
+        else
         {
             return false;
         }
@@ -151,3 +151,5 @@ void Aircraft::display() const
 {
     type.texture.draw(project_2D(pos), {PLANE_TEXTURE_DIM, PLANE_TEXTURE_DIM}, get_speed_octant());
 }
+
+// TASK_1 C.4)

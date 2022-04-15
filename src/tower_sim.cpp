@@ -20,8 +20,13 @@ TowerSimulation::TowerSimulation(int argc, char **argv) : help{(argc > 1) && (st
     MediaPath::initialize(argv[0]);
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
     GL::init_gl(argc, argv, "Airport Tower Simulation");
+    // TASK_1 -
+    aircraft_manager = std::make_unique<AircraftManager>();
 
     create_keystrokes();
+
+    // TASK_1 - C.3)
+    // GL::move_queue.emplace(&aircraft_manager);
 }
 
 TowerSimulation::~TowerSimulation()
@@ -56,8 +61,13 @@ void TowerSimulation::create_keystrokes()
                            { GL::exit_loop(); });
     GL::keystrokes.emplace('q', []()
                            { GL::exit_loop(); });
+    // TASK_0 - C.3)
+    /* GL::keystrokes.emplace('c', [this]()
+                           { create_random_aircraft(); });*/
+    // TASK_1 - C.4)
     GL::keystrokes.emplace('c', [this]()
                            { create_random_aircraft(); });
+
     GL::keystrokes.emplace('+', []()
                            { GL::change_zoom(0.95f); });
     GL::keystrokes.emplace('-', []()

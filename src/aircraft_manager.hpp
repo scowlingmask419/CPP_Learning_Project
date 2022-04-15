@@ -8,17 +8,22 @@
 
 class Aircraft;
 
+// TASK_1 - C.3) : On souhaite que AircraftManager hérite de DynamicObject afin qu'il puisse être considéré comme tel.
 class AircraftManager : public GL::DynamicObject
 {
+private:
+    // TASK_1 - C.1)
+    std::vector<std::unique_ptr<Aircraft>> aircrafts;
+
 public:
     // TASK_1 - B.2)
     AircraftManager();
     ~AircraftManager() override = default;
     AircraftManager(const AircraftManager &) = delete;
 
-    void add_aircraft(std::unique_ptr<Aircraft>);
+    // AircraftManager &operator=(const AircraftManager &) = delete;
     bool move() override;
 
-private:
-    std::vector<std::unique_ptr<Aircraft>> aircrafts;
+    // TASK_1 - C.3)
+    // void add(std::unique_ptr<Aircraft>);
 };

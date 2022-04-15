@@ -307,6 +307,31 @@ src/tower_sim.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tower.dir/build.make CMakeFiles/tower.dir/src/tower_sim.cpp.s
 .PHONY : src/tower_sim.cpp.s
 
+# TASK_1 - C ########################################################################################
+# target to build an object file
+src/aircraft_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tower.dir/build.make CMakeFiles/tower.dir/src/aircraft_manager.cpp.o
+.PHONY : src/aircraft_manager.cpp.o
+
+src/aircraft_manager.i: src/aircraft_manager.cpp.i
+
+.PHONY : src/aircraft_manager.i
+
+# target to preprocess a source file
+src/aircraft_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tower.dir/build.make CMakeFiles/tower.dir/src/aircraft_manager.cpp.i
+.PHONY : src/aircraft_manager.cpp.i
+
+src/aircraft_manager.s: src/aircraft_manager.cpp.s
+
+.PHONY : src/aircraft_manager.s
+
+# target to generate assembly for a file
+src/aircraft_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tower.dir/build.make CMakeFiles/tower.dir/src/aircraft_manager.cpp.s
+.PHONY : src/aircraft_manager.cpp.s
+####################################################
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -334,6 +359,10 @@ help:
 	@echo "... src/tower_sim.o"
 	@echo "... src/tower_sim.i"
 	@echo "... src/tower_sim.s"
+# TASK_1 - C
+	@echo "... src/aircraft_manager.o"
+	@echo "... src/aircraft_manager.i"
+	@echo "... src/aircraft_manager.s"
 .PHONY : help
 
 
