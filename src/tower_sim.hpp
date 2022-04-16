@@ -1,6 +1,7 @@
 #pragma once
 
 #include "aircraft_manager.hpp"
+#include "aircraft_factory.hpp"
 
 class Airport;
 struct AircraftType;
@@ -12,6 +13,8 @@ private:
     Airport *airport = nullptr;
     // TASK_1 - C.2)
     std::unique_ptr<AircraftManager> aircraft_manager;
+    // TASK_1 - A
+    std::unique_ptr<AircraftFactory> aircraft_factory;
 
     TowerSimulation(const TowerSimulation &) = delete;
     TowerSimulation &operator=(const TowerSimulation &) = delete;

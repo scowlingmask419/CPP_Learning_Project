@@ -21,9 +21,9 @@ public:
     ~AircraftManager() override = default;
     AircraftManager(const AircraftManager &) = delete;
 
-    // AircraftManager &operator=(const AircraftManager &) = delete;
+    // TASK_1 - C.3)
     bool move() override;
 
-    // TASK_1 - C.3)
-    // void add(std::unique_ptr<Aircraft>);
+    // TASK_1 - A
+    void add_aircraft(std::unique_ptr<Aircraft> aircraft);
 };

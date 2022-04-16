@@ -33,5 +33,10 @@
   "directory": "/home/amyr/Bureau/CPP_Learning_Project/build",
   "command": "/bin/x86_64-linux-gnu-g++-10 -DGLUT_DISABLE_ATEXIT_HACK  -g -Wall -Wextra -Werror -Wshadow -Wno-deprecated -std=gnu++17 -o CMakeFiles/tower.dir/src/aircraft_manager.cpp.o -c /home/amyr/Bureau/CPP_Learning_Project/src/aircraft_manager.cpp",
   "file": "/home/amyr/Bureau/CPP_Learning_Project/src/aircraft_manager.cpp"
+},
+{
+  "directory": "/home/amyr/Bureau/CPP_Learning_Project/build",
+  "command": "/bin/x86_64-linux-gnu-g++-10 -DGLUT_DISABLE_ATEXIT_HACK  -g -Wall -Wextra -Werror -Wshadow -Wno-deprecated -std=gnu++17 -o CMakeFiles/tower.dir/src/aircraft_factory.cpp.o -c /home/amyr/Bureau/CPP_Learning_Project/src/aircraft_factory.cpp",
+  "file": "/home/amyr/Bureau/CPP_Learning_Project/src/aircraft_factory.cpp"
 }
 ]

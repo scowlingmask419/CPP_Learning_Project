@@ -24,6 +24,22 @@ CMakeFiles/tower.dir/src/aircraft.cpp.o: ../src/img/stb_image.h
 CMakeFiles/tower.dir/src/aircraft.cpp.o: ../src/tower.hpp
 CMakeFiles/tower.dir/src/aircraft.cpp.o: ../src/waypoint.hpp
 
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/GL/displayable.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/GL/dynamic_object.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/GL/opengl_interface.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/GL/texture.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/aircraft.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/aircraft_factory.cpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/aircraft_factory.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/aircraft_types.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/config.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/geometry.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/img/image.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/img/media_path.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/img/stb_image.h
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/tower.hpp
+CMakeFiles/tower.dir/src/aircraft_factory.cpp.o: ../src/waypoint.hpp
+
 CMakeFiles/tower.dir/src/aircraft_manager.cpp.o: ../src/GL/displayable.hpp
 CMakeFiles/tower.dir/src/aircraft_manager.cpp.o: ../src/GL/dynamic_object.hpp
 CMakeFiles/tower.dir/src/aircraft_manager.cpp.o: ../src/GL/opengl_interface.hpp
@@ -51,6 +67,7 @@ CMakeFiles/tower.dir/src/main.cpp.o: ../src/GL/dynamic_object.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: ../src/GL/opengl_interface.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: ../src/GL/texture.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: ../src/aircraft.hpp
+CMakeFiles/tower.dir/src/main.cpp.o: ../src/aircraft_factory.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: ../src/aircraft_manager.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: ../src/aircraft_types.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: ../src/config.hpp
@@ -87,6 +104,7 @@ CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/GL/dynamic_object.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/GL/opengl_interface.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/GL/texture.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/aircraft.hpp
+CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/aircraft_factory.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/aircraft_manager.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/aircraft_types.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/airport.hpp

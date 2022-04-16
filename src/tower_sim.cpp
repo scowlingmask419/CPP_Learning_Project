@@ -13,7 +13,8 @@
 
 using namespace std::string_literals;
 
-const std::string airlines[8] = {"AF", "LH", "EY", "DL", "KL", "BA", "AY", "EY"};
+// TASK_1 - A
+// const std::string airlines[8] = {"AF", "LH", "EY", "DL", "KL", "BA", "AY", "EY"};
 
 TowerSimulation::TowerSimulation(int argc, char **argv) : help{(argc > 1) && (std::string{argv[1]} == "--help"s || std::string{argv[1]} == "-h"s)}
 {
@@ -33,25 +34,28 @@ TowerSimulation::~TowerSimulation()
 {
     delete airport;
 }
+/*
+ void TowerSimulation::create_aircraft(const AircraftType &type) const
+ {
+     assert(airport); // make sure the airport is initialized before creating aircraft
 
-void TowerSimulation::create_aircraft(const AircraftType &type) const
-{
-    assert(airport); // make sure the airport is initialized before creating aircraft
+     const std::string flight_number = airlines[std::rand() % 8] + std::to_string(1000 + (rand() % 9000));
+     const float angle = (rand() % 1000) * 2 * 3.141592f / 1000.f; // random angle between 0 and 2pi
+     const Point3D start = Point3D{std::sin(angle), std::cos(angle), 0} * 3 + Point3D{0, 0, 2};
+     const Point3D direction = (-start).normalize();
 
-    const std::string flight_number = airlines[std::rand() % 8] + std::to_string(1000 + (rand() % 9000));
-    const float angle = (rand() % 1000) * 2 * 3.141592f / 1000.f; // random angle between 0 and 2pi
-    const Point3D start = Point3D{std::sin(angle), std::cos(angle), 0} * 3 + Point3D{0, 0, 2};
-    const Point3D direction = (-start).normalize();
-
-    Aircraft *aircraft = new Aircraft{type, flight_number, start, direction, airport->get_tower()};
-    // TASK_0 - C.4)
-    // GL::display_queue.emplace_back(aircraft);
-    GL::move_queue.emplace(aircraft);
-}
+     Aircraft *aircraft = new Aircraft{type, flight_number, start, direction, airport->get_tower()};
+     // TASK_0 - C.4)
+     // GL::display_queue.emplace_back(aircraft);
+     GL::move_queue.emplace(aircraft);
+     std::cout << "CREATE_AIRCRAFT" << std::endl;
+ }*/
 
 void TowerSimulation::create_random_aircraft() const
 {
-    create_aircraft(*(aircraft_types[rand() % 3]));
+    // create_aircraft(*(aircraft_types[rand() % 3]));
+    // TASK_1 - A
+    aircraft_manager->add_aircraft(aircraft_factory->create_aircraft(airport->get_tower()));
 }
 
 // CONST A RETIRER
@@ -116,7 +120,10 @@ void TowerSimulation::launch()
     }
 
     init_airport();
-    init_aircraft_types();
+
+    // TASK_1 - A
+    // init_aircraft_types();
+    aircraft_factory = std::make_unique<AircraftFactory>();
 
     GL::loop();
 }

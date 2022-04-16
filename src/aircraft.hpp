@@ -64,12 +64,9 @@ public:
 
     void display() const override;
     bool move() override;
-
-    // A DEFINIR !!!!!!!!!!!!!!!!!!!
-    bool operator<(const Aircraft &aircraft) const;
-    bool operator>(const Aircraft &aircraft) const;
-    bool operator<=(const Aircraft &aircraft) const;
-    bool operator>=(const Aircraft &aircraft) const;
-
+    // TASK_2
+    // bool Aircraft::has_terminal() const;
+    // bool operator<(const Aircraft &aircraft) const;
+    /////////////////////////////////////////
     friend class Tower;
 };
