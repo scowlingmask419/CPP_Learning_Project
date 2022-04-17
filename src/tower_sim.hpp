@@ -32,5 +32,8 @@ public:
     TowerSimulation(int argc, char **argv);
     ~TowerSimulation();
 
+    // TASK_2 - B.2)
+    void show_airline(unsigned i);
+
     void launch();
 };

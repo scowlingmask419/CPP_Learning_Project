@@ -26,4 +26,7 @@ public:
 
     // TASK_1 - A
     void add_aircraft(std::unique_ptr<Aircraft> aircraft);
+
+    // TASK_2 - B.2)
+    int count(const std::string_view &line);
 };

@@ -58,6 +58,14 @@ void TowerSimulation::create_random_aircraft() const
     aircraft_manager->add_aircraft(aircraft_factory->create_aircraft(airport->get_tower()));
 }
 
+void TowerSimulation::show_airline(unsigned i)
+{
+    assert(i < airlines.size());
+    auto airline = airlines[i];
+    int count = aircraft_manager->count(airline);
+    std::cout << count << " aircrafts for " << airline << std::endl;
+}
+
 // CONST A RETIRER
 void TowerSimulation::create_keystrokes()
 {
@@ -86,18 +94,29 @@ void TowerSimulation::create_keystrokes()
                                  std::max(GL::ticks_per_sec - 1u, 1u); });
     GL::keystrokes.emplace('p', []()
                            { GL::is_paused = !GL::is_paused; });
+
+    // TASK_2 - B.2)
+    for (auto i = 0; i < (int)airlines.size(); i++)
+    {
+        GL::keystrokes.emplace('0' + i, [this, i]()
+                               { show_airline(i); });
+    }
 }
 
 void TowerSimulation::display_help() const
 {
     std::cout << "This is an airport tower simulator" << std::endl
               << "the following keysstrokes have meaning:" << std::endl;
-
+    /*
     for (const auto &ks_pair : GL::keystrokes)
     {
         std::cout << ks_pair.first << ' ';
+    }*/
+    // TASK_2 - A
+    for (const auto &[key, function] : GL::keystrokes)
+    {
+        std::cout << key << ' ';
     }
-
     std::cout << std::endl;
 }
 
