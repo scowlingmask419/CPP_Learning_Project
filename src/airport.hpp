@@ -22,12 +22,12 @@ private:
     const GL::Texture2D texture;
     std::vector<Terminal> terminals;
 
-    // TASK_2 - C.3)
+    // TASK_2 - G.3)
     AircraftManager &aircraft_manager;
 
     Tower tower;
 
-    // TASK_2 - C.3)
+    // TASK_2 - G.3)
     int fuel_stock = 0;
     int ordered_fuel = 0;
     int next_refill_time = 0;
@@ -68,7 +68,7 @@ public:
                                                                                                                                                  pos{pos_},
                                                                                                                                                  texture{image},
                                                                                                                                                  terminals{type.create_terminals()},
-                                                                                                                                                 // TASK_2 - C.3)
+                                                                                                                                                 // TASK_2 - G.3)
                                                                                                                                                  aircraft_manager{_aircraft_manager},
                                                                                                                                                  tower{*this}
     {
@@ -87,7 +87,7 @@ public:
             t.move();
         }
 
-        // TASK_2 - C.6)
+        // TASK_2 - G.6)
         if (next_refill_time <= 0)
         {
             fuel_stock += ordered_fuel;
@@ -101,7 +101,7 @@ public:
             next_refill_time -= 1;
         }
 
-        // TASK_2 - C.6)
+        // TASK_2 - G.6)
         for (auto &t : terminals)
         {
             t.refill_aircraft_if_needed(fuel_stock);

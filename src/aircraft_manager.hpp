@@ -30,6 +30,9 @@ public:
     // TASK_2 - B.2)
     int count(const std::string_view &line);
 
-    // TASK_2 - C.2)
+    // TASK_2 - G.2)
     int get_required_fuel();
+
+    // TASK_3 - 1.1)
+    // bool try_move(Aircraft &aircraft);
 };

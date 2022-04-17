@@ -25,7 +25,7 @@ private:
     // TASK_0 - C.5)
     bool has_been_served = false;
 
-    // TASK_2 - A
+    // TASK_2 - D
     int fuel = 0;
 
     // turn the aircraft to arrive at the next waypoint
@@ -59,7 +59,7 @@ public:
                                                        pos{pos_},
                                                        speed{speed_},
                                                        control{control_},
-                                                       // TASK_2 - A
+                                                       // TASK_2 - D
                                                        fuel{std::rand() % ((3000 - 150 + 1) + 150)}
 
     {
@@ -72,22 +72,22 @@ public:
     void display() const override;
     bool move() override;
 
-    // TASK_2 - B.1)
+    // TASK_2 - E.1)
     bool has_terminal() const;
 
-    // TASK_2 - B.2)
+    // TASK_2 - E.2)
     bool is_circling() const;
 
-    // TASK_2 - B.4)
+    // TASK_2 - F
     bool operator<(const Aircraft &aircraft) const;
 
-    // TASK_2 - C.1)
+    // TASK_2 - G.1)
     bool is_low_on_fuel() const;
 
-    // TASK_2 - C.2)
+    // TASK_2 - G.2)
     int missing_fuel() const;
 
-    // TASK_2 - C.4)
+    // TASK_2 - G.4)
     void refill(int &fuel_stock);
 
     friend class Tower;

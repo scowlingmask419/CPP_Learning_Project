@@ -2,14 +2,14 @@
 
 AircraftFactory::AircraftFactory()
 {
-    // TASK_1 - A
+    // TASK_1 - D
     // cf., inline void init_aircraft_types()
     aircraft_types.emplace_back(std::make_unique<AircraftType>(.02f, .05f, .02f, MediaPath{"l1011_48px.png"}));
     aircraft_types.emplace_back(std::make_unique<AircraftType>(.02f, .05f, .02f, MediaPath{"b707_jat.png"}));
     aircraft_types.emplace_back(std::make_unique<AircraftType>(.02f, .1f, .02f, MediaPath{"concorde_af.png"}));
 }
 
-// TASK_1 - A
+// TASK_1 - E
 std::string AircraftFactory::get_flight_number()
 {
     std::string flight_number;
@@ -23,7 +23,7 @@ std::string AircraftFactory::get_flight_number()
 
 std::unique_ptr<Aircraft> AircraftFactory::create_aircraft(Tower &tower)
 {
-    // TASK_1 - A
+    // TASK_1 - D
     // cf., TowerSimulation::create_aircraft(const AircraftType &type)
     const std::string flight_number = get_flight_number();
     const float angle = (std::rand() % 1000) * 2 * 3.141592f / 1000.f; // random angle between 0 and 2pi

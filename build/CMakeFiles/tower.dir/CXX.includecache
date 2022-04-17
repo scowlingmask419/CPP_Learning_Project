@@ -58,14 +58,6 @@ array
 cassert
 -
 
-/home/amyr/Bureau/CPP_Learning_Project/src/aircraft.cpp
-aircraft.hpp
-/home/amyr/Bureau/CPP_Learning_Project/src/aircraft.hpp
-GL/opengl_interface.hpp
-/home/amyr/Bureau/CPP_Learning_Project/src/GL/opengl_interface.hpp
-cmath
--
-
 /home/amyr/Bureau/CPP_Learning_Project/src/aircraft.hpp
 GL/displayable.hpp
 /home/amyr/Bureau/CPP_Learning_Project/src/GL/displayable.hpp
@@ -85,6 +77,22 @@ string_view
 -
 random
 -
+
+/home/amyr/Bureau/CPP_Learning_Project/src/aircraft_manager.cpp
+aircraft_manager.hpp
+/home/amyr/Bureau/CPP_Learning_Project/src/aircraft_manager.hpp
+
+/home/amyr/Bureau/CPP_Learning_Project/src/aircraft_manager.hpp
+ostream
+-
+vector
+-
+memory
+-
+aircraft.hpp
+/home/amyr/Bureau/CPP_Learning_Project/src/aircraft.hpp
+GL/dynamic_object.hpp
+/home/amyr/Bureau/CPP_Learning_Project/src/GL/dynamic_object.hpp
 
 /home/amyr/Bureau/CPP_Learning_Project/src/aircraft_types.hpp
 GL/texture.hpp

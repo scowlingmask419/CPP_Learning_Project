@@ -73,7 +73,7 @@ void Tower::arrived_at_terminal(const Aircraft &aircraft)
     airport.get_terminal(it->second).start_service(aircraft);
 }
 
-// TASK_2 - B.3)
+// TASK_2 - E.3)
 WaypointQueue Tower::reserve_terminal(Aircraft &aircraft)
 {
     if (aircraft.has_terminal())

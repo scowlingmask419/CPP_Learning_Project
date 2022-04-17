@@ -13,13 +13,15 @@ private:
     Airport *airport = nullptr;
     // TASK_1 - C.2)
     std::unique_ptr<AircraftManager> aircraft_manager;
-    // TASK_1 - A
+    // TASK_1 - D
     std::unique_ptr<AircraftFactory> aircraft_factory;
 
     TowerSimulation(const TowerSimulation &) = delete;
     TowerSimulation &operator=(const TowerSimulation &) = delete;
 
-    void create_aircraft(const AircraftType &type) const;
+    // TASK_1 - D
+    // void create_aircraft(const AircraftType &type) const;
+
     void create_random_aircraft() const;
 
     // CONST A RETIRER

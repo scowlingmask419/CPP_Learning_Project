@@ -32,7 +32,19 @@ bool AircraftManager::move()
     // TASK_2 - B.1)
     aircrafts.erase(std::remove_if(aircrafts.begin(), aircrafts.end(),
                                    [this](const std::unique_ptr<Aircraft> &aircraft)
-                                   { return !aircraft->move(); }),
+                                   {
+                                       // TASK_3 - 1.1)
+                                       try
+                                       {
+                                           return !aircraft->move();
+                                       }
+                                       catch (const AircraftCrash &aircraft_crash)
+                                       {
+                                           // std::cout << "CATCH!" << std::endl;
+                                           // std::cout << aircraft_crash.what() << std::endl;
+                                           return true;
+                                       }
+                                   }),
                     aircrafts.end());
     return true;
 }
@@ -52,7 +64,7 @@ int AircraftManager::count(const std::string_view &line)
                          { return (a->get_flight_num().rfind(line, 0) == 0); });
 }
 
-// TASK_2 - C.2)
+// TASK_2 - G.2)
 int AircraftManager::get_required_fuel()
 {
     return std::accumulate(aircrafts.begin(), aircrafts.end(), 0,
@@ -61,3 +73,18 @@ int AircraftManager::get_required_fuel()
                                return aircraft->is_low_on_fuel() && aircraft->is_circling() ? acc + aircraft->missing_fuel() : acc;
                            });
 }
+
+// TASK_3 - 1.1)
+/*
+bool AircraftManager::try_move(Aircraft &aircraft)
+{
+    try
+    {
+        return aircraft.move();
+    }
+    catch (const AircraftCrash &aircraft_crash)
+    {
+        std::cerr << aircraft_crash.what() << std::endl;
+        return true;
+    }
+}*/

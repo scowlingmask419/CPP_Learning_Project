@@ -13,7 +13,7 @@
 
 using namespace std::string_literals;
 
-// TASK_1 - A
+// TASK_1 - D
 // const std::string airlines[8] = {"AF", "LH", "EY", "DL", "KL", "BA", "AY", "EY"};
 
 TowerSimulation::TowerSimulation(int argc, char **argv) : help{(argc > 1) && (std::string{argv[1]} == "--help"s || std::string{argv[1]} == "-h"s)}
@@ -143,7 +143,7 @@ void TowerSimulation::launch()
 
     init_airport();
 
-    // TASK_1 - A
+    // TASK_1 - D
     // init_aircraft_types();
     aircraft_factory = std::make_unique<AircraftFactory>();
 

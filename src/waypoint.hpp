@@ -15,21 +15,21 @@ class Waypoint : public Point3D
 {
 public:
     // const WaypointType type;
-    //  TASK_2 - B.4)
+    //  TASK_2 - F
     WaypointType type;
 
     Waypoint(const Point3D &position, const WaypointType type_ = wp_air) : Point3D{position}, type{type_}
     {
     }
 
-    // TASK_2 - B.4)
+    // TASK_2 - F
     Waypoint(const Waypoint &) = default;
     ~Waypoint() = default;
 
     bool is_on_ground() const { return type != wp_air; }
     bool is_at_terminal() const { return type == wp_terminal; }
 
-    // TASK_2 - B.4)
+    // TASK_2 - F
     Waypoint &operator=(const Waypoint &other)
     {
         if (this != &other)

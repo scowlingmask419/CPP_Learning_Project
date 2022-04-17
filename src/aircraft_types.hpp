@@ -28,7 +28,7 @@ inline AircraftType *aircraft_types[NUM_AIRCRAFT_TYPES]{};
 // note: textures have to be initialized after initializing glut, so we'll need
 // our own init here
 
-// TASK_1 - A
+// TASK_1 - D
 /*
 inline void init_aircraft_types()
 {

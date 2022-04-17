@@ -31,7 +31,7 @@ add_executable(tower
 # TASK_1 - C
 	src/aircraft_manager.cpp
 	src/aircraft_manager.hpp
-# TASK_1 - A
+# TASK_1 - D
 	src/aircraft_factory.cpp 
 	src/aircraft_factory.hpp
 )
