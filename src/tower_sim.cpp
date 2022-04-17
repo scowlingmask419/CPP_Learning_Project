@@ -122,8 +122,11 @@ void TowerSimulation::display_help() const
 
 void TowerSimulation::init_airport()
 {
-    airport = new Airport{one_lane_airport, Point3D{0, 0, 0},
-                          new img::Image{one_lane_airport_sprite_path.get_full_path()}};
+    airport = new Airport{
+        one_lane_airport,
+        Point3D{0, 0, 0},
+        new img::Image{one_lane_airport_sprite_path.get_full_path()},
+        *aircraft_manager};
 
     // TASK_0 - C.4)
     // GL::display_queue.emplace_back(airport);

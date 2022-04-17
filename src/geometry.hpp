@@ -66,7 +66,8 @@ struct Point2D
 
 struct Point3D
 {
-    // TASK_2 - C.1)
+    // float values[3]{};
+    //  TASK_2 - C.1)
     std::array<float, 3> values;
 
     Point3D() {}
@@ -84,47 +85,52 @@ struct Point3D
     Point3D &operator+=(const Point3D &other)
     {
 
-        // x() += other.x();
-        // y() += other.y();
-        // z() += other.z();
+        x() += other.x();
+        y() += other.y();
+        z() += other.z();
 
         // TASK_2 - C.2)
+        /*
         std::transform(other.values.begin(), other.values.end(), values.begin(), values.begin(),
-                       [](auto &k, auto &p)
+                       [](auto k, auto p)
                        {
                            return k + p;
                        });
+        */
         return *this;
     }
 
     Point3D &operator-=(const Point3D &other)
     {
 
-        // x() -= other.x();
-        // y() -= other.y();
-        // z() -= other.z();
+        x() -= other.x();
+        y() -= other.y();
+        z() -= other.z();
 
         // TASK_2
+        /*
         std::transform(other.values.begin(), other.values.end(), values.begin(), values.begin(),
-                       [](auto &k, auto &p)
+                       [](auto k, auto p)
                        {
                            return k - p;
                        });
+        */
         return *this;
     }
 
     Point3D &operator*=(const float scalar)
     {
 
-        // x() *= scalar;
-        // y() *= scalar;
-        // z() *= scalar;
+        x() *= scalar;
+        y() *= scalar;
+        z() *= scalar;
 
         // TASK_2 - C.1)
+        /*
         std::transform(values.begin(), values.end(), values.begin(),
-                       [scalar](auto &k)
+                       [scalar](auto k)
                        { return k * scalar; });
-
+        */
         return *this;
     }
 
@@ -151,15 +157,15 @@ struct Point3D
 
     Point3D operator-() const { return Point3D{-x(), -y(), -z()}; }
 
-    // float length() const { return std::sqrt(x() * x() + y() * y() + z() * z()); }
-
+    float length() const { return std::sqrt(x() * x() + y() * y() + z() * z()); }
+    /*
     float length() const
     {
         // TASK_2 C.3)
         return std::sqrt(
             std::accumulate(values.begin(), values.end(), 0.f, [](float sum, float next)
                             { return sum + next * next; }));
-    }
+    }*/
 
     float distance_to(const Point3D &other) const
     {

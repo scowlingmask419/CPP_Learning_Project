@@ -72,3 +72,21 @@ void Tower::arrived_at_terminal(const Aircraft &aircraft)
     assert(it != reserved_terminals.end());
     airport.get_terminal(it->second).start_service(aircraft);
 }
+
+// TASK_2 - B.3)
+WaypointQueue Tower::reserve_terminal(Aircraft &aircraft)
+{
+    if (aircraft.has_terminal())
+    {
+        return WaypointQueue{};
+    }
+    if (aircraft.distance_to(airport.pos) >= 10)
+        // Le terminal est trop éloigné de l'avion
+        return {};
+    auto pair = airport.reserve_terminal(aircraft);
+    if (pair.first.empty())
+        // Aucun terminal n'est disponible
+        return {};
+    reserved_terminals.emplace(&aircraft, pair.second);
+    return pair.first;
+}

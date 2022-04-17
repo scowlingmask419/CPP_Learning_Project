@@ -86,6 +86,7 @@ CMakeFiles/tower.dir/src/tower.cpp.o
  /home/amyr/Bureau/CPP_Learning_Project/src/GL/opengl_interface.hpp
  /home/amyr/Bureau/CPP_Learning_Project/src/GL/texture.hpp
  /home/amyr/Bureau/CPP_Learning_Project/src/aircraft.hpp
+ /home/amyr/Bureau/CPP_Learning_Project/src/aircraft_manager.hpp
  /home/amyr/Bureau/CPP_Learning_Project/src/aircraft_types.hpp
  /home/amyr/Bureau/CPP_Learning_Project/src/airport.hpp
  /home/amyr/Bureau/CPP_Learning_Project/src/airport_type.hpp

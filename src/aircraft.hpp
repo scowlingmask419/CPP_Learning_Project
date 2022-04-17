@@ -9,6 +9,7 @@
 
 #include <string>
 #include <string_view>
+#include <random>
 
 class Aircraft : public GL::Displayable, public GL::DynamicObject
 {
@@ -21,8 +22,11 @@ private:
     bool landing_gear_deployed = false; // is the landing gear deployed?
     bool is_at_terminal = false;
 
-    // TASK 0 - C.5)
+    // TASK_0 - C.5)
     bool has_been_served = false;
+
+    // TASK_2 - A
+    int fuel = 0;
 
     // turn the aircraft to arrive at the next waypoint
     // try to facilitate reaching the waypoint after the next by facing the
@@ -54,7 +58,10 @@ public:
                                                        flight_number{flight_number_},
                                                        pos{pos_},
                                                        speed{speed_},
-                                                       control{control_}
+                                                       control{control_},
+                                                       // TASK_2 - A
+                                                       fuel{std::rand() % ((3000 - 150 + 1) + 150)}
+
     {
         speed.cap_length(max_speed());
     }
@@ -64,9 +71,24 @@ public:
 
     void display() const override;
     bool move() override;
-    // TASK_2
-    // bool Aircraft::has_terminal() const;
-    // bool operator<(const Aircraft &aircraft) const;
-    /////////////////////////////////////////
+
+    // TASK_2 - B.1)
+    bool has_terminal() const;
+
+    // TASK_2 - B.2)
+    bool is_circling() const;
+
+    // TASK_2 - B.4)
+    bool operator<(const Aircraft &aircraft) const;
+
+    // TASK_2 - C.1)
+    bool is_low_on_fuel() const;
+
+    // TASK_2 - C.2)
+    int missing_fuel() const;
+
+    // TASK_2 - C.4)
+    void refill(int &fuel_stock);
+
     friend class Tower;
 };

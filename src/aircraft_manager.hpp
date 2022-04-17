@@ -29,4 +29,7 @@ public:
 
     // TASK_2 - B.2)
     int count(const std::string_view &line);
+
+    // TASK_2 - C.2)
+    int get_required_fuel();
 };

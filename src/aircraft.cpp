@@ -91,6 +91,13 @@ void Aircraft::add_waypoint(const Waypoint &wp, const bool front)
 // TASK_0 - C.4)
 bool Aircraft::move()
 {
+    // TASK_2 - A
+    if (fuel <= 0)
+    {
+        std::cout << get_flight_num() << " crashed because of fuel" << std::endl;
+        return false;
+    }
+
     if (waypoints.empty())
     {
         // TASK 0 - C.5)
@@ -123,6 +130,18 @@ bool Aircraft::move()
             waypoints.pop_front();
         }
 
+        // TASK_2 - B.4)
+        if (is_circling())
+        {
+            // std::cout << "ICI" << std::endl;
+
+            auto waypoint_queue = control.reserve_terminal(*this); // On essaye de reserver un terminal
+            if (!waypoint_queue.empty())
+            {
+                waypoints = waypoint_queue;
+            }
+        }
+
         if (is_on_ground())
         {
             if (!landing_gear_deployed)
@@ -133,6 +152,9 @@ bool Aircraft::move()
         }
         else
         {
+            // TASK_2 - A
+            fuel -= 1;
+
             // if we are in the air, but too slow, then we will sink!
             const float speed_len = speed.length();
             if (speed_len < SPEED_THRESHOLD)
@@ -152,18 +174,54 @@ void Aircraft::display() const
     type.texture.draw(project_2D(pos), {PLANE_TEXTURE_DIM, PLANE_TEXTURE_DIM}, get_speed_octant());
 }
 
-// TASK_2
-/*
+// TASK_2 - B.1)
 bool Aircraft::has_terminal() const
 {
     return !waypoints.empty() && waypoints.back().is_at_terminal();
-}*/
+}
 
-// TASK_2
-/*
+// TASK_2 - B.2)
+bool Aircraft::is_circling() const
+{
+    return !waypoints.empty() && !waypoints.back().is_on_ground() && !landing_gear_deployed;
+}
+
+// TASK_2 - B.4)
 bool Aircraft::operator<(const Aircraft &aircraft) const
 {
-
-    return has_terminal();
+    return has_terminal() != aircraft.has_terminal() ? has_terminal() : fuel < aircraft.fuel;
 }
-*/
+
+// TASK_2 - C.1)
+bool Aircraft::is_low_on_fuel() const
+{
+    return fuel < 200;
+}
+
+// TASK_2 - C.2)
+int Aircraft::missing_fuel() const
+{
+    // std::cout << "ICI" << std::endl;
+    return 3000 - fuel;
+}
+
+// TASK_2 - C.4)
+void Aircraft::refill(int &fuel_stock)
+{
+    int difference = missing_fuel();
+    if (fuel_stock != 0)
+    {
+        if (fuel_stock < difference)
+        {
+            fuel += fuel_stock;
+            std::cout << get_flight_num() << " filled with " << fuel_stock << "L of fuel" << std::endl;
+            fuel_stock = 0;
+        }
+        else
+        {
+            fuel += difference;
+            std::cout << get_flight_num() << " filled with " << difference << "L of fuel" << std::endl;
+            fuel_stock -= difference;
+        }
+    }
+}
