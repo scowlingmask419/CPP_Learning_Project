@@ -101,6 +101,9 @@ void TowerSimulation::create_keystrokes()
         GL::keystrokes.emplace('0' + i, [this, i]()
                                { show_airline(i); });
     }
+    // TASK_3 - 2)
+    GL::keystrokes.emplace('m', [this]()
+                           { aircraft_manager->show_crash_amount(); });
 }
 
 void TowerSimulation::display_help() const

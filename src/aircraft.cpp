@@ -96,8 +96,7 @@ bool Aircraft::move()
     {
         // std::cout << get_flight_num() << " crashed because of fuel" << std::endl;
         // TASK_3 - 1.1)
-        std::cout << "AVANT THROW" << std::endl;
-        throw new AircraftCrash(get_flight_num() + " crashed");
+        throw AircraftCrash(get_flight_num() + " crashed");
         // return false;
     }
 

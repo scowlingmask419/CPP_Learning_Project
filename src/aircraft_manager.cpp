@@ -31,7 +31,10 @@ bool AircraftManager::move()
 
     // TASK_2 - B.1)
     aircrafts.erase(std::remove_if(aircrafts.begin(), aircrafts.end(),
-                                   [this](const std::unique_ptr<Aircraft> &aircraft)
+
+                                   //[this](const std::unique_ptr<Aircraft> &aircraft)
+                                   // TASK_3 - 2)
+                                   [&, this](const std::unique_ptr<Aircraft> &aircraft)
                                    {
                                        // TASK_3 - 1.1)
                                        try
@@ -40,8 +43,10 @@ bool AircraftManager::move()
                                        }
                                        catch (const AircraftCrash &aircraft_crash)
                                        {
-                                           // std::cout << "CATCH!" << std::endl;
-                                           // std::cout << aircraft_crash.what() << std::endl;
+                                           // TASK_3 - 2)
+                                           crash_amount += 1;
+
+                                           std::cerr << aircraft_crash.what() << std::endl;
                                            return true;
                                        }
                                    }),
@@ -74,17 +79,8 @@ int AircraftManager::get_required_fuel()
                            });
 }
 
-// TASK_3 - 1.1)
-/*
-bool AircraftManager::try_move(Aircraft &aircraft)
+// TASK_3 - 2)
+void AircraftManager::show_crash_amount() const
 {
-    try
-    {
-        return aircraft.move();
-    }
-    catch (const AircraftCrash &aircraft_crash)
-    {
-        std::cerr << aircraft_crash.what() << std::endl;
-        return true;
-    }
-}*/
+    std::cout << crash_amount << " planes crashed" << std::endl;
+}

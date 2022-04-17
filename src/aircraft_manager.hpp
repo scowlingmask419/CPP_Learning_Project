@@ -14,6 +14,8 @@ class AircraftManager : public GL::DynamicObject
 private:
     // TASK_1 - C.1)
     std::vector<std::unique_ptr<Aircraft>> aircrafts;
+    // TASK_3 - 2)
+    int crash_amount = 0;
 
 public:
     // TASK_1 - B.2)
@@ -33,6 +35,6 @@ public:
     // TASK_2 - G.2)
     int get_required_fuel();
 
-    // TASK_3 - 1.1)
-    // bool try_move(Aircraft &aircraft);
+    // TASK_3 - 2)
+    void show_crash_amount() const;
 };
